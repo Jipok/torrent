@@ -1539,7 +1539,6 @@ func (cl *Client) AddTorrentOpt(opts AddTorrentOpts) (t *Torrent, new bool) {
 	if opts.InfoHashV2.Ok {
 		cl.torrentsByShortHash[*opts.InfoHashV2.Value.ToShort()] = t
 	}
-	cl.torrents[t] = struct{}{}
 	t.setInfoBytesLocked(opts.InfoBytes)
 	cl.clearAcceptLimits()
 	t.updateWantPeersEvent()
